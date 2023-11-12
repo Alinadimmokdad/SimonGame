@@ -22,6 +22,8 @@ buttons.forEach((button) => {
     checkAnswer(userClickedPattern.length - 1);
   });
 });
+// check if the gamePattern[index]===userclickedPattern[index]
+// then it checks the lenght to switch to another level
 function checkAnswer(currentIndex) {
   if (gamePattern[currentIndex] === userClickedPattern[currentIndex]) {
     if (userClickedPattern.length === gamePattern.length) {
@@ -40,6 +42,7 @@ function checkAnswer(currentIndex) {
     gameOver();
   }
 }
+// creating a random index between 0 and 3 to choose color from the color array buttoncolours[random] numbers
 function nextLevel() {
   userClickedPattern = [];
   level++;
@@ -51,6 +54,7 @@ function nextLevel() {
   fadeInOut(element);
   playSound(randomChosenColour);
 }
+// make a fade when the game pattern add colours colours
 function fadeInOut(element) {
   element.style.transition = "opacity 100ms";
   element.style.opacity = 0;
@@ -58,7 +62,7 @@ function fadeInOut(element) {
     element.style.opacity = 1;
   }, 100);
 }
-
+// when the user click a class pressed for a time 1 second
 function animatePress(currentColor) {
   const element = document.getElementById(currentColor);
   element.classList.add("pressed");
